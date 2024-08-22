@@ -1,28 +1,30 @@
-*{
+* {
     padding: 0;
     margin: 0;
     color: var(--color);
+    font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-sizing: border-box;
     transition: 0.2s ease-out;
 }
 
-html,body{
+html,
+body {
     width: 100%;
     height: 100%;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 10px;
     background-color: var(--bg);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: var(--blue-dark);
 }
 
-body{
-    --bg: #f4f4f4;
+body {
+    --bg: rgb(252, 251, 250);
     --color: #234;
     --blue: #7286D3;
     --blue-dark: #7286D3;
@@ -31,20 +33,21 @@ body{
     background-color: var(--bg);
 }
 
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
+    z-index: 3;
 }
 
-nav{
-   width: 100%;
-   height: 100%; 
+nav {
+    width: 100%;
+    height: 100%;
 }
- 
-nav ul *{
+
+nav ul * {
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -52,7 +55,7 @@ nav ul *{
     gap: 10px;
 }
 
-nav ul{
+nav ul {
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -60,58 +63,114 @@ nav ul{
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px 0 0;
 }
 
-.menu{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: #E5E0FF;
+#menu {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
 
-.menu div, .menu div::before, .menu div::after{
-    position: absolute;
+#menu div {
+    transition: 0.1s;
+}
+
+#menu div,
+#menu div:before,
+#menu div:after {
     content: '';
+    display: block;
     width: 30px;
-    height: 3px;
-    background-color: var(--color);
+    height: 4px;
+    margin: auto;
+    background: var(--color);
+    transition: 0.2s;
+    border-radius: 2px;
 }
 
-.menu div::before{
-    translate: 0 -13px;
+#menu div:before {
+    transform: translateY(10px);
 }
 
-.menu div::after{
-    translate: 0 12px;
+#menu div:after {
+    transform: translateY(-14px);
 }
 
-.menu:hover div{
-    background-color: transparent;
+#menu.click div {
+    background: transparent;
 }
 
-.menu:hover div::after{
-    translate: 0;
+#menu.click div:before {
+    transform: rotate(-45deg);
 }
 
-main{
+#menu.click div:after {
+    transform: translateY(-4px) rotate(45deg);
+}
+
+main {
     position: fixed;
     top: 80px;
     left: 0;
+    width: 100%;
     height: calc(100% - 80px);
     overflow: auto;
+    z-index: 1;
 }
 
-section{
+section {
     width: 100%;
     height: 80%;
     padding: 20px;
 }
 
-footer{
+footer {
     width: 100%;
     height: 100px;
     background: var(--blue-dark);
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    flex-flow: row;
+}
+
+.column {
+    flex-flow: column;
+}
+
+.intro img {
+    width: 50%;
+    max-width: 500px;
+}
+
+.intro h2 {
+    width: 100%;
+    font-size: 5vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 5px 5px 0 var(--blue-white);
+}
+
+.container-menu{
+    position: fixed;
+    z-index: 2;
+    top: -100%;
+    left: 0;
+}
+
+.container-menu.click{
+    top: 0;
+}
+
+a{
+    text-decoration: none;
+    color: var(--color);
 }
