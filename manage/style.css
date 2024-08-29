@@ -15,6 +15,9 @@ body {
     height: 100%;
 }
 
+/* Animação de carrossel apenas com CSS */
+/* Onde as "pausas" (0%, 25%...) frequentes ajudam no efeito de continuidade*/
+
 @keyframes carrosel {
     0% {
         translate: 0% 0;
@@ -37,6 +40,8 @@ body {
     }
 }
 
+/* Configurações da barra e botão do scroll */
+
 ::-webkit-scrollbar {
     width: 10px;
     background-color: var(--bg);
@@ -45,6 +50,8 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: var(--blue-dark);
 }
+
+/* Cores e background da página */
 
 body {
     --bg: #fcfbfa;
@@ -56,6 +63,8 @@ body {
     background-color: var(--bg);
 }
 
+/* Cabeçalho */
+
 header {
     position: fixed;
     top: 0;
@@ -65,10 +74,14 @@ header {
     z-index: 3;
 }
 
+/* Navegação */
+
 nav {
     width: 100%;
     height: 100%;
 }
+
+/* Todos os elementos no interior da Nav > ul e no logo */
 
 nav ul *,
 .logo {
@@ -78,6 +91,8 @@ nav ul *,
     align-items: center;
     gap: 10px;
 }
+
+/* Lista não ordenada */
 
 nav ul {
     width: 100%;
@@ -160,6 +175,57 @@ input {
     outline: none;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    flex-flow: row;
+}
+
+.column {
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 500px;
+}
+
+/* Configuração geral de imagens */
+
+img {
+    height: 100%;
+    max-width: 500px;
+}
+
+/* Configurações de título e texto*/
+
+h2 {
+    width: auto;
+    /* clamp(min,médio,max) > feature para definir tamanhos (max, min) para fontes */
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Efeito de "espelho" nas fontes */
+    text-shadow: 5px 5px 0 var(--blue-white);
+}
+
+p {
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
+    max-width: 500px;
+}
+
+/* Configurações de link e butões*/
+
+a {
+    text-decoration: none;
+    color: var(--color);
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
+}
+
 .button {
     padding: 10px;
     background-color: var(--blue-white);
@@ -183,48 +249,9 @@ input {
     box-shadow: 0px 0px 0 var(--blue-dark);
 }
 
-.flex {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-}
+/* Configurações específicas */
 
-.row {
-    flex-flow: row;
-}
-
-.column {
-    flex-flow: column;
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 500px;
-}
-
-img {
-    height: 100%;
-    max-width: 500px;
-}
-
-h2 {
-    width: auto;
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 5px 5px 0 var(--blue-white);
-}
-
-a {
-    text-decoration: none;
-    color: var(--color);
-    font-size: clamp(0.9rem, 1vw, 1.5rem);
-}
-
-p {
-    font-size: clamp(0.9rem, 1vw, 1.5rem);
-    max-width: 500px;
-}
+/* Section de carrossel */
 
 #carrosel {
     width: 100%;
@@ -236,6 +263,7 @@ p {
     padding: 0;
     margin-top: 100px;
 }
+
 
 #carrosel h2 {
     width: 100vw;
@@ -254,6 +282,12 @@ p {
     margin: 15% 0;
 }
 
+.carrosel:hover .cards {
+    animation-play-state: paused;
+}
+
+/* Container de div[class='card'] */
+
 .cards {
     position: relative;
     display: flex;
@@ -268,9 +302,7 @@ p {
     transition: 0.5s linear;
 }
 
-.carrosel:hover .cards {
-    animation-play-state: paused;
-}
+/* Card de comentários */
 
 .card {
     min-width: 25vw;
@@ -300,9 +332,12 @@ p {
     text-align: center;
 }
 
+/* Efeito de "up" quando há uma interação */
 .card:hover {
     translate: 0 -3px;
 }
+
+/* Section de contatos */
 
 #contatos {
     width: 100%;
@@ -320,6 +355,8 @@ p {
     width: 100%;
 }
 
+/* Container que mostra a equipe */
+
 .container_equipe {
     width: 100%;
     height: auto;
@@ -331,6 +368,8 @@ p {
     margin: 15% 0;
     padding: 20px;
 }
+
+/* Card da equipe */
 
 .equipe {
     width: auto;
@@ -345,10 +384,14 @@ p {
     height: 50px;
 }
 
+/* Avisos e termos de licença */
+
 .req {
     color: var(--bg);
     opacity: 0.5;
 }
+
+/* Formulário de comentários */
 
 .comment {
     width: auto;
@@ -363,7 +406,11 @@ p {
     width: 50%;
 }
 
-@media screen and (max-width:600px) {
+/* Modo mobile */
+
+@media screen and (max-width:700px) {
+
+    /* Termos e licença tornam-se retos e com "..." no fim */
     .req {
         text-wrap: nowrap;
         width: 100%;
@@ -371,13 +418,19 @@ p {
         text-overflow: ellipsis;
     }
 
+    /* O formulário de comentários "some" */
+
     .comment {
         display: none;
     }
 
+    /* Todas as div que são linhas se tornam colunas */
+
     .row {
         flex-flow: column;
     }
+
+    /* Ajustando tamanho das imagens para modo mobile */
 
     #intro img {
         height: 60%;
@@ -385,13 +438,19 @@ p {
         order: 1;
     }
 
+    /* Imagem da Section(quem somos) se torna "invisível" */
+
     #about img {
         display: none;
     }
 
+    /* Todas as sections tem o tamanho total da tela */
+
     section {
         height: 100%;
     }
+
+    /* Links de navegação se tornam menu de navegaçao fixo na tela */
 
     .container_menu {
         position: fixed;
@@ -409,10 +468,14 @@ p {
         opacity: 0;
     }
 
+    /* Quando clica no menu hambúrguer o menu de navegação aparece */
+
     .container_menu.click {
         pointer-events: all;
         opacity: 1;
     }
+
+    /* Adaptação para efeito(hover e active) no modo mobile*/
 
     .button:hover,
     .button:active {
@@ -424,6 +487,8 @@ p {
         translate: 0 -3px;
         box-shadow: 0px 3px 0 var(--blue-dark);
     }
+
+    /* Menu hambúrguer aparece (modo mobile) */
 
     #menu {
         width: 50px;
@@ -455,6 +520,8 @@ p {
     #menu div:after {
         transform: translateY(-14px);
     }
+
+    /* "Animações" após acontecer um click */
 
     #menu.click div {
         background: transparent;
