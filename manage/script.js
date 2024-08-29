@@ -4,12 +4,6 @@ const sections = document.querySelectorAll('section')
 const cards = document.querySelector('.cards')
 const main = document.querySelector('main')
 
-cards.onload = () =>{
-    
-}
-
-sections_list = {}
-
 sections.forEach(section=>{
     let a = document.createElement('a')
     a.setAttribute('class','button')
@@ -17,11 +11,18 @@ sections.forEach(section=>{
     a.innerHTML = section.getAttribute('name')
     a.onclick = () =>{
         container_menu.classList.remove('click')
+        menu.classList.remove('click')
     }
     container_menu.appendChild(a)
 })
 
 menu.onclick = () =>{
-    menu.classList.toggle('click')
-    container_menu.classList.toggle('click')
+    if(menu.classList.value == 'click'){
+        menu.classList.remove('click')
+        container_menu.classList.remove('click')
+    }
+    else{
+        menu.classList.add('click')
+        container_menu.classList.add('click')   
+    }
 }
