@@ -255,7 +255,7 @@ a {
 
 #carrosel {
     width: 100%;
-    height: 80%;
+    height: auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -447,7 +447,8 @@ a {
     /* Todas as sections tem o tamanho total da tela */
 
     section {
-        height: 100%;
+        height: auto;
+        min-height: 50%;
     }
 
     /* Links de navegação se tornam menu de navegaçao fixo na tela */
